@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lipsha - developer portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: rgb(0, 0, 33);
+            color: white;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 80px;
+            background-color: rgb(18, 18, 62);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            list-style: none;
+            margin: 0 23px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+        }
+
+        nav ul li a:hover {
+            color: rgb(153, 153, 226);
+            font-size: 1.04rem;
+        }
+
+        main hr {
+            border: 0;
+            background: #9c97f1;
+            height: 1.2px;
+            margin: 60px 84px;
+        }
+
+        .left {
+            font-size: 1.5rem;
+        }
+
+        .firstSection {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 130px 0;
+
+        }
+
+        .firstSection>div {
+            width: 30%;
+        }
+
+        .leftSection {
+            font-size: 3rem;
+        }
+
+        .leftSection .btn {
+            padding: 12px;
+            background: #1e2167;
+            color: white;
+            border: 2px solid white;
+            border-radius: 6px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .rightSection {
+            width: 80%;
+        }
+
+        .purple {
+            color: rgb(170, 107, 228);
+
+        }
+
+        .text-gray {
+            color: gray;
+        }
+
+        #element {
+            color: rgb(170, 107, 228);
+        }
+
+        .secondSection {
+            max-width: 80vw;
+            margin: auto;
+            height: 80vh;
+        }
+
+        .secondSection h1 {
+            font: 1.9rem;
+        }
+
+        .secondSection .box {
+            background: white;
+            width: 77vw;
+            height: 2px;
+            margin: 56px 0;
+            display: flex;
+        }
+
+        .secondSection .verticle {
+            height: 93px;
+            width: 1px;
+            background-color: white;
+            margin: 0 147px;
+        }
+
+        .image-top {
+            width: 50px;
+            height: 50px;
+            position: relative;
+            top: -40px;
+            left: -12px;
+            object-fit: contain;
+        }
+
+
+        .verticle-title {
+            position: relative;
+            top: 80px;
+            width: 130px;
+            font-size: 14px;
+        }
+
+        .verticle-desc {
+            position: relative;
+            top: 86px;
+            color: gray;
+            width: 170px;
+            font-size: 9px;
+        }
+
+        footer {
+            background-color: #0e0e1a;
+            height: 233px;
+
+        }
+
+        .footer {
+            display: flex;
+            padding: 23px 122px;
+            justify-content: space-evenly;
+        }
+
+        .footer ul {
+            list-style: none;
+
+        }
+
+        .footer>div {
+            width: 123px;
+
+        }
+
+
+        .popup-container {
+            display: none;
+            position: fixed;
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70%;
+            max-height: 80vh;
+            overflow-y: auto;
+            background-color: #1e2167;
+            color: white;
+            border-radius: 10px;
+            padding: 20px;
+            z-index: 1000;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        .popup-content h2,
+        h3 {
+            color: #a76eff;
+        }
+
+        .popup-content ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+
+        .popup-content li {
+            margin-bottom: 5px;
+        }
+
+        .close-btn {
+            float: right;
+            font-size: 24px;
+            cursor: pointer;
+            color: #ff9c9c;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translate(-50%, 0);
+            }
+        }
+
+        /* Dropdown Styling */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #1e2167;
+            min-width: 180px;
+            z-index: 1000;
+            border-radius: 5px;
+            padding: 10px 0;
+        }
+
+        .dropdown-content li {
+            padding: 8px 16px;
+            list-style: none;
+        }
+
+        .dropdown-content li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content li a:hover {
+            background-color: rgb(153, 153, 226);
+            color: black;
+        }
+
+        .popup-content input,
+        .popup-content textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 6px 0;
+            border: none;
+            border-radius: 4px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .popup-container {
+            display: none;
+            position: fixed;
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 75%;
+            max-height: 80vh;
+            overflow-y: auto;
+            background-color: #1e2167;
+            color: white;
+            border-radius: 10px;
+            padding: 25px;
+            z-index: 1000;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+        }
+
+        .popup-content h2 {
+            color: #a76eff;
+        }
+
+        .close-btn {
+            float: right;
+            font-size: 26px;
+            cursor: pointer;
+            color: #ff9c9c;
+        }
+
+        @media (max-width: 768px) {
+            .firstSection {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .firstSection>div {
+                width: 80%;
+            }
+
+            .rightSection img {
+                width: 100%;
+            }
+
+            .secondSection .box {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .secondSection .verticle {
+                margin: 20px 0;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+                align-items: center;
+            }
+
+            nav {
+                flex-direction: column;
+                height: auto;
+                padding: 20px 0;
+            }
+
+            .footer {
+                flex-direction: column;
+                align-items: center;
+                padding: 20px;
+            }
+
+            .footer>div {
+                margin-bottom: 15px;
+            }
+
+            .leftSection {
+                font-size: 2rem;
+            }
+
+            .leftSection .btn {
+                font-size: 16px;
+            }
+        }
+
+
+        @media (max-width: 768px) {
+            .firstSection {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .firstSection>div {
+                width: 80%;
+            }
+
+            .rightSection img {
+                width: 100%;
+            }
+
+            .secondSection .box {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .secondSection .verticle {
+                margin: 20px 0;
+            }
+
+            .image-top {
+                width: 60px;
+                height: 60px;
+                top: -20px;
+                left: 0;
+                display: block;
+                margin: 0 auto;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="left">lipsha's portfolio</div>
+            <div class="right">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="javascript:void(0);" onclick="toggleAbout(true)">About</a></li>
+                    <li class="dropdown">
+                        <a href="javascript:void(0);">Services</a>
+                        <ul class="dropdown-content">
+                            <li><a href="#" onclick="showForm('Web Designs')">Web Designs</a></li>
+                            <li><a href="#" onclick="showForm('ML Models')">ML Models</a></li>
+                            <li><a href="#" onclick="showForm('Web Developments')">Web Developments</a></li>
+                            <li><a href="#" onclick="showForm('Java Projects')">Java Projects</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="javascript:void(0);">Projects</a>
+                        <ul class="dropdown-content">
+                            <li><a href="#" onclick="showProject('chatApp')">Java Chat App</a></li>
+                            <li><a href="#" onclick="showProject('lalityam')">Lalityam Fashion</a></li>
+                            <li><a href="#" onclick="showProject('ecommerce')">E-Commerce System</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="javascript:void(0);" onclick="toggleContact(true)">Contact</a></li>
+
+
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div id="home"></div>
+        <section class="firstSection">
+            <div class="leftSection">
+                Hi, My name is <span class="purple">Lipsha</span>
+
+                <div>and I am a passionate</div>
+                <span id="element"></span>
+                <div class="buttons">
+                    <a class="btn" href="LIPSHA_DAS_JAVA_DEVELOPER_.pdf" download>Download Resume</a>
+                </div>
+            </div>
+            <div class="rightSection">
+                <img src="bg1.png.jpg" alt="">
+            </div>
+        </section>
+        <hr>
+        <section class="secondSection">
+            <span class="text-gray">What I have done so far</span>
+            <h1>Work Experience</h1>
+
+            <div class="box">
+                <div class="verticle">
+                    <img class="image-top " src="java dev.jpg" alt="">
+                    <div class="verticle-title">
+                        Java Developer (2023-Present)
+                    </div>
+                    <div class="verticle-desc">
+                        As a Java developer student, I worked on building projects using core Java concepts like OOPs,
+                        collections, multithreading, and Java Stream API. I explored backend development using Java with
+                        Spring Boot, integrated databases like MySQL and MongoDB, and developed RESTful APIs. I also
+                        practiced data structures and algorithms in Java to strengthen my problem-solving skills.
+                    </div>
+                </div>
+
+                <div class="verticle">
+                    <img class="image-top " src="frontend.jpg" alt="">
+                    <div class="verticle-title">
+                        Frontend Developer (2023-Present)
+                    </div>
+                    <div class="verticle-desc">
+                        As a frontend developer, I designed and built responsive user interfaces using HTML, CSS,
+                        JavaScript, and Bootstrap. I also worked with React.js to create dynamic single-page
+                        applications and used Axios or Fetch to connect with backend APIs. I focused on creating clean,
+                        user-friendly designs and improving UI/UX for better usability.
+                    </div>
+                </div>
+
+                <div class="verticle">
+                    <img class="image-top " src="ml.jpg" alt="">
+                    <div class="verticle-title">
+                        ML Engineer (2024-Present)
+                    </div>
+                    <div class="verticle-desc">
+                        As an aspiring Machine Learning Engineer, I worked on developing predictive models using Python,
+                        focusing on real-world problems like predictive maintenance. I explored data preprocessing,
+                        feature engineering, and model evaluation techniques using libraries like pandas, scikit-learn,
+                        and NumPy. I also visualized insights using matplotlib and seaborn to support data-driven
+                        decisions.
+                    </div>
+                </div>
+                <div class="verticle">
+                    <img class="image-top " src="frontend.jpg" alt="">
+                    <div class="verticle-title">
+                        Web Designer (2022-Present)
+                    </div>
+                    <div class="verticle-desc">
+                        As a web designer, I created visually appealing and user-centric website layouts using HTML,
+                        CSS, and design principles. I focused on responsive design, consistent color schemes, and
+                        intuitive navigation to enhance user experience. I also collaborated on UI/UX improvements and
+                        translated design ideas into functional web interfaces.
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+
+
+    <footer>
+        <div class="footer">
+            <div class="footer-first">
+                <h3>Connect with me</h3>
+            </div>
+            <div class="footer-second">
+                <ul>
+                    <li><a href="https://www.instagram.com/_lipsha_das_" target="_blank"
+                            style="color: white; text-decoration: none;">Instagram</a></li>
+                </ul>
+            </div>
+            <div class="footer-third">
+                <ul>
+                    <li><a href="https://www.linkedin.com/in/lipsha-priyadarshini-das-483a7425b " target="_blank"
+                            style="color: white; text-decoration: none;">LinkedIn</a></li>
+                </ul>
+            </div>
+            <div class="footer-fourth">
+                <ul>
+                    <li><a href="https://github.com/Lipsha-23" target="_blank"
+                            style="color: white; text-decoration: none;">GitHub</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+        var typed = new Typed('#element', {
+            strings: ['web developer', 'Java Developer', 'ML Engineer', 'Web Designer'],
+            typeSpeed: 50,
+        });
+    </script>
+
+    <script>
+        var typed = new Typed('#element', {
+            strings: ['web developer', 'Java Developer', 'ML Engineer', 'Web Designer'],
+            typeSpeed: 50,
+        });
+
+        function toggleAbout(show) {
+            const popup = document.getElementById("about-popup");
+            popup.style.display = show ? "block" : "none";
+        }
+
+        // form submission
+        function showForm(serviceName) {
+            document.getElementById("form-title").innerText = `${serviceName} Service Request`;
+            document.getElementById("service-form-container").style.display = "block";
+        }
+
+        function toggleForm(show) {
+            document.getElementById("service-form-container").style.display = show ? "block" : "none";
+        }
+        // showing the projects 
+        function showProject(projectId) {
+            const popup = document.getElementById("project-popup");
+            const title = document.getElementById("project-title");
+            const description = document.getElementById("project-description");
+            const link = document.getElementById("project-link");
+
+            const projects = {
+                chatApp: {
+                    title: "💬 Java-Based Chat Application",
+                    description: `Duration: Jan 2025 – Mar 2025
+
+I developed a real-time multi-client chat application using core Java concepts such as Socket Programming and Java Swing for the GUI. The goal was to simulate a real-world chat environment where multiple users can join, send, and receive messages simultaneously.
+
+It uses Java Sockets for persistent two-way communication, a centralized multi-threaded server, and JSON data for message transfer. Java Swing powers the GUI, offering a responsive user experience.
+
+Key Skills: Java, Java Swing, Socket Programming, REST APIs, JSON`,
+                    github: "https://github.com/Lipsha-23/Java-Chat-Application"
+                },
+                lalityam: {
+                    title: "👗 Lalityam – Timeless Chikankari Fashion",
+                    description: `Duration: May 2025 – Jun 2025
+
+Frontend E-Commerce Website using HTML, CSS, JavaScript, and JSON.
+
+This site showcases Chikankari Kurtas with a clean, responsive UI. Dynamic product rendering via JSON, elegant layout with Flexbox and media queries. Reinforced my UI/UX and vanilla JavaScript DOM skills.
+
+Key Features:
+- Product gallery
+- Responsive layout
+- Dynamic data handling`,
+                    github: "https://github.com/Lipsha-23/lalityam"
+                },
+                ecommerce: {
+                    title: "🛒 E-Commerce System (Microservices Architecture)",
+                    description: `Duration: May 2025 – Jun 2025
+
+Robust backend system using Java, Spring Boot, MongoDB, JWT, built on microservices.
+
+Each service (Product, Cart, Order) has its own logic and database. Includes REST APIs, JWT authentication, MongoDB integration. Demonstrates scalable backend architecture.
+
+Key Features:
+- 🔒 JWT Auth
+- 📦 Product Service
+- 🛍️ Cart Service
+- 📃 Order Service
+- 🔗 Microservices communication`,
+                    github: "https://github.com/Lipsha-23/e-commerce-microservices"
+                }
+            };
+
+            const selected = projects[projectId];
+            title.innerText = selected.title;
+            description.innerHTML = selected.description.replace(/\n/g, "<br>");
+            link.href = selected.github;
+            link.style.display = "inline-block";
+            popup.style.display = "block";
+        }
+
+        function toggleProject(show) {
+            const popup = document.getElementById("project-popup");
+            popup.style.display = show ? "block" : "none";
+        }
+
+        function toggleContact(show) {
+            const popup = document.getElementById("contact-popup");
+            popup.style.display = show ? "block" : "none";
+        }
+
+
+    </script>
+
+
+
+    <div id="about-popup" class="popup-container">
+        <div class="popup-content">
+            <span class="close-btn" onclick="toggleAbout(false)">&times;</span>
+            <h2>👋 About Me</h2>
+            <p>Hello! I’m Lipsha Das, a passionate and versatile Computer Science Engineering student with a strong
+                foundation in Java development, DSA, and web development. I'm in my 3rd year and have experience in
+                full-stack projects and scalable systems.</p>
+
+            <h3>👩‍💻 What I Do</h3>
+            <ul>
+                <li>🧠 <strong>Java Developer:</strong> Built projects like chat apps, Leetcode tracker, using Java
+                    Collections, Streams, etc.</li>
+                <li>🌐 <strong>Frontend & Full-Stack:</strong> React.js + Spring Boot/Django projects like MyBlogSpace,
+                    E-Commerce system.</li>
+                <li>🤖 <strong>ML Enthusiast:</strong> Case study on Predictive Maintenance in Manufacturing.</li>
+                <li>🛡 <strong>Cybersecurity Aware:</strong> Courses like Ethical AI, security preparation.</li>
+                <li>📈 <strong>Problem Solver:</strong> Active in Java and C competitive coding.</li>
+            </ul>
+
+            <h3>⚙️ Tech Stack</h3>
+            <p><strong>Languages:</strong> Java, C, Python, JavaScript, SQL<br>
+                <strong>Web:</strong> HTML, CSS, Bootstrap, React, Node.js, Django<br>
+                <strong>Databases:</strong> MongoDB, MySQL<br>
+                <strong>Tools:</strong> Git, GitHub, Postman, Docker, VS Code, Spring Boot
+            </p>
+
+            <h3>🛠 Projects I'm Proud Of</h3>
+            <ul>
+                <li>AI-Powered Resume Analyzer</li>
+                <li>Microservices-based E-Commerce System</li>
+                <li>MyBlogSpace Blogging Platform</li>
+                <li>Leetcode Tracker with MongoDB</li>
+            </ul>
+
+            <h3>🎯 Goals</h3>
+            <ul>
+                <li>Master DSA in Java & C</li>
+                <li>Build scalable backend systems</li>
+                <li>Contribute to open source</li>
+                <li>Crack top software internships</li>
+            </ul>
+
+            <h3>🧳 Beyond Tech</h3>
+            <p>I enjoy traveling, painting, and adapting to new environments. I blend creativity with tech to fuel
+                innovation.</p>
+        </div>
+    </div>
+
+
+    <div id="service-form-container" class="popup-container" style="display: none;">
+        <div class="popup-content">
+            <span class="close-btn" onclick="toggleForm(false)">&times;</span>
+            <h2 id="form-title">Service Request</h2>
+            <form id="service-form">
+                <label for="name">Your Name:</label><br>
+                <input type="text" id="name" name="name" required><br><br>
+
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" required><br><br>
+
+                <label for="phone">Phone Number:</label><br>
+                <input type="tel" id="phone" name="phone" required><br><br>
+
+                <label for="description">Project Description:</label><br>
+                <textarea id="description" name="description" rows="4" required></textarea><br><br>
+
+                <button class="btn" type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+
+
+    <div id="project-popup" class="popup-container" style="display: none;">
+        <div class="popup-content">
+            <span class="close-btn" onclick="toggleProject(false)">&times;</span>
+            <h2 id="project-title"></h2>
+            <p id="project-description" style="white-space: pre-line;"></p>
+            <a id="project-link" href="#" target="_blank" style="color: #a5e1ff;">🔗 View on GitHub</a>
+        </div>
+    </div>
+
+    <div id="contact-popup" class="popup-container" style="display: none;">
+        <div class="popup-content">
+            <span class="close-btn" onclick="toggleContact(false)">&times;</span>
+            <h2>📞 Contact Me</h2>
+            <p><strong>Phone:</strong> +91-7978952891</p>
+            <p><strong>Email:</strong> lipshad73@gmail.com</p>
+            <p><strong>Location:</strong> Bhubaneswar, Odisha, India</p>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>
