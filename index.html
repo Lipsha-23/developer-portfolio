@@ -357,42 +357,74 @@
 
 
         @media (max-width: 768px) {
-            .firstSection {
-                flex-direction: column;
-                text-align: center;
-            }
+    .secondSection .box {
+        flex-direction: column;
+        align-items: center;
+    }
 
-            .firstSection>div {
-                width: 80%;
-            }
+    .secondSection .verticle {
+        width: 90%;
+        height: auto;
+        margin: 40px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+    }
 
-            .rightSection img {
-                width: 100%;
-            }
+    .image-top {
+        position: static;
+        width: 60px;
+        height: 60px;
+        margin-bottom: 10px;
+    }
 
-            .secondSection .box {
-                flex-direction: column;
-                align-items: center;
-            }
+    .verticle-title {
+        position: static;
+        text-align: center;
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
 
-            .secondSection .verticle {
-                margin: 20px 0;
-            }
+    .verticle-desc {
+        position: static;
+        text-align: center;
+        font-size: 12px;
+        width: 90%;
+        color: #ccc;
+    }
 
-            .image-top {
-                width: 60px;
-                height: 60px;
-                top: -20px;
-                left: 0;
-                display: block;
-                margin: 0 auto;
-            }
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
 
-            nav ul {
-                flex-direction: column;
-                gap: 10px;
-            }
-        }
+    nav {
+        flex-direction: column;
+        height: auto;
+        padding: 20px 0;
+    }
+
+    .footer {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .footer > div {
+        margin-bottom: 15px;
+    }
+
+    .leftSection {
+        font-size: 2rem;
+    }
+
+    .leftSection .btn {
+        font-size: 16px;
+    }
+}
+
     </style>
 </head>
 
